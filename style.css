@@ -1,336 +1,180 @@
-/* Μηδενίζουμε τα περιθώρια του body για να "ακουμπάει" δεξιά-αριστερά */
+/* Γενικές Ρυθμίσεις */
 body {
     margin: 0;
+    padding: 0;
     background-color: #000000;
-}    
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Προστασία από οριζόντιο scrolling */
+}
 
-
-
-
+/* Header / Title Section */
 .color_of_title {
-    width: 100%;           /* Αντί για 1520px, το κάνουμε 100% για να ακουμπάει στις άκρες */
-    max-width: 1520px;     /* Αλλά δεν θα ξεπεράσει τα 1520px αν η οθόνη είναι τεράστια */
-    height: 250px;
+    width: 100%;
+    padding: 40px 20px;
     background-color: #2B2B2B;
-    margin: 1px auto;      /* pady=1 και κεντράρισμα */
-    position: relative;    /* Απαραίτητο για να δουλέψει το place (absolute) των labels */
-    overflow: hidden;      /* Αντίστοιχο του pack_propagate(False) */
-    transition: 1s;
-    
+    box-sizing: border-box;
+    transition: 0.5s;
+    text-align: center;
 }
 
 .color_of_title:hover {
-    box-shadow: 0px 0px 30px 10px orange; /* Ενισχυμένο εφέ όταν ακουμπάς το πλαίσιο */
-}
-
-
-
-.title_SERVICE_label {
-    color: orange;
-    font-size: 65px;
-    font-family: Arial, sans-serif; 
-    font-weight: bold;
-    text-align: center;
-    margin-top: 3%;
-}
-
-.title_REPPAS_label {
-    color: white;
-    font-size: 65px;
-    font-family: Arial, sans-serif; 
-    font-weight: bold;
-    text-align: center;
-    margin-top: 0%;
-}
-
-
-.container {
-    display: flex;  /* Ενεργοποιεί το Flexbox */
-    align-items: center;    /* Στοιχίζει την εικόνα και το κείμενο κάθετα στο κέντρο */
-    gap: 20px;
-    overflow: hidden;
-    border: 1px solid transparent;
-    animation: glowing-border 3s infinite ease-in-out;
-}
-
-
-
-#img1 {
-    width: 40%;
-    height: auto;
-    margin-bottom: 0%;
-    margin-top: 5%;
-    margin-left: 5%;
-    flex-shrink: 0;     /* Εμποδίζει την εικόνα από το να "στριμωχτεί" */
-}
-
-
-
-
-
-
-.cyber-card {
-    width: 900px;
-    height: 340px;
-    background-color: black; /* Το βαθύ μπλε σου */
-    position: relative;
-    overflow: hidden; /* Κρύβει το λέιζερ που περιστρέφεται */
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif; /* Επιλέγουμε μια καθαρή γραμματοσειρά */ 
-    font-size: 30px;     /* Μεγαλώνει το μέγεθος (βάλε όσα pixels θέλεις) */
-    font-weight: bold;  
-    text-align: center;
-    margin-right: 2%;
-    margin-top: 4%;
-}
-
-/* Το Λέιζερ που γυρνάει */
-.cyber-card::before {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: conic-gradient(orange, transparent, transparent,  rgb(252, 187, 66));
-    animation: rotateLaser 4s linear infinite;
-}
-
-/* Το εσωτερικό κάλυμμα για να φαίνεται μόνο η άκρη */
-.cyber-card::after {
-    content: '';
-    position: absolute;
-    inset: 4px; /* Το πάχος της γραμμής */
-    background: black; /* Το ίδιο χρώμα με το background του card */
-    border-radius: 8px;
-}
-
-.content {
-    z-index: 1; /* Για να φαίνεται το κείμενο πάνω από το λέιζερ */
-    color: orange;
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-@keyframes rotateLaser {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#description {
-    margin: 0;  
-    font-family: Arial, sans-serif; /* Επιλέγουμε μια καθαρή γραμματοσειρά */ 
-    font-size: 30px;     /* Μεγαλώνει το μέγεθος (βάλε όσα pixels θέλεις) */
-    font-weight: bold;  
-    text-align: center; 
-    margin-left: 0%; 
-    margin-right: 1%;
-    margin-top: 3%;
-}
-
- 
-
-
-
-/* 1. Το πλαίσιο (container) */
-#page_google_maps {
-    width: 100%;
-    background-color: #2B2B2B;
-    transition: 0.9s;
-}
-
-#page_google_maps:hover {
-    box-shadow: 0px 0px 30px 10px orange; /* Ενισχυμένο εφέ όταν ακουμπάς το πλαίσιο */
-}
-
-#p {
-    display: flex;             /* Το σωστό είναι flex, όχι flexbox */
-    justify-content: center;   /* Κεντράρει οριζόντια */
-    align-items: center;       /* Κεντράρει κάθετα */
-    height: 150px;             /* Χρειάζεται ένα ύψος για να φανεί το κεντράρισμα */
-    font-family: Arial, sans-serif; 
-    font-size: 30px; 
-    font-weight: bold;  
-    color: orange;
-    margin-top: 5%; 
-    
-             /* Η απόσταση από το πάνω μέρος του site */
-    
-}
-
-/* 2. Η εικόνα μέσα στο πλαίσιο */
-.map-img {
-    width: 50%;
-    height: auto;
-    margin-bottom: 4%;
-    margin-top: 0%;
-    margin-left: 25%;
-    flex-shrink: 0; 
-    
-    
-    
-}
-
-.button-container {
-    background-color: #2B2B2B;
-    height: 150px; 
-    color: orange;
-    /* Χρησιμοποιούμε Flexbox για τέλειο κεντράρισμα */
-    display: flex;
-    justify-content: center; /* Κεντράρει οριζόντια */
-    align-items: center;     /* Κεντράρει κάθετα */
-    
-    margin-top: 0px;
-}
-
-.button-container a {
-    background-color: ORANGE; /* Χρώμα φόντου του κουμπιού */
-    text-decoration: none;     /* Βγάζει την υπογράμμιση από το link */
-    color: #2B2B2B;             /* Χρώμα γραμμάτων */
-    font-family: Arial, sans-serif;
-    font-size: 22px;
-    font-weight: bold;
-    border: 2px solid orange;
-    padding: 10px 25px;
-    border-radius: 10px;
-    transition: 0.5s; /* Αυτό κάνει και τη λάμψη να εμφανίζεται ομαλά */
-}
-
-/* Εφέ όταν ακουμπάς το κουμπί - ΕΔΩ ΕΙΝΑΙ Η ΑΛΛΑΓΗ */
-.button-container a:hover {
-    background-color: #2B2B2B;
-    color: orange;
-    
-    /* Η ΛΑΜΨΗ (BOX SHADOW) */
-    /* Σύνταξη: x-offset y-offset blur spread color */
-    box-shadow: 0px 0px 20px 5px orange;
-}
-
-/* Το κύριο πλαίσιο */
-.gallery {
-    display: flex;         /* Βάζει τη στήλη και τη μεγάλη φωτό δίπλα-δίπλα */
-    gap: 15px;            /* Κενό ανάμεσα στις φωτό */
-    align-items: stretch; /* Τις κάνει να έχουν το ίδιο ύψος */
-    padding: 20px;
-
-    overflow-x: hidden; 
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
-
-
-
-/* Η αριστερή στήλη με τις 2 μικρές */
-.left-col {
-    display: flex;
-    flex-direction: column; /* Βάζει τη μία κάτω από την άλλη */
-    gap: 25px;             /* Κενό ανάμεσα στις δύο μικρές */
-    width: 30%;  
-    margin-top: 2%; 
-    margin-left: 7%; 
-    margin-bottom: 3%;        /* Το πλάτος της αριστερής πλευράς */
-}
-
-#first_img, #second_img {
-    align-items: center;
-    width: 100%;           /* Πιάνουν όλο το πλάτος της στήλης τους */
-    height: auto;
-    display: block;
-}
-
-/* Η μεγάλη εικόνα δεξιά */
-#third_img {
-    align-items: center;
-    margin-top: 2%;
-    margin-left: 2%;
-    margin-bottom: 3%;
-    width: 55%;            /* Το υπόλοιπο πλάτος της οθόνης */
-    display: block;
-    object-fit: cover;     /* Γεμίζει το ύψος χωρίς να παραμορφώνεται */
-}
-
-.gallery img {
-    opacity: 0;                   /* Αόρατες */
-    transform: translateX(1050px);  /* Λίγο πιο δεξιά */
-    transition: all 0.4s ease-in-out; /* Ομαλή κίνηση */
-}
-
-
-
-/* 2. Η κατάσταση όταν το ποντίκι μπαίνει στο Gallery */
-/* Προτείνω να ενεργοποιούνται όλες μόλις ακουμπάς το Gallery 
-   ή μία-μία αν προτιμάς */
-.gallery:hover img {
-    opacity: 1;                   /* Εμφανίζονται */
-    transform: translateX(0);    /* Έρχονται στην κανονική θέση */
-}
-
-
-
-
-.info-container {
-    display: block;        /* Διασφαλίζει ότι πιάνει δικό του χώρο */
-    clear: both;           /* "Καθαρίζει" τυχόν floats από πάνω */
-    width: 100%;
-    min-height: 250px;     /* Χρησιμοποίησε min-height αντί για height */
-    background-color: #2B2B2B;
-    color: white;
-    margin-top: 50px;      /* Δώσε λίγο "αέρα" από το από πάνω div */
-    padding: 40px;
-    box-sizing: border-box; /* Πολύ σημαντικό για να μην "σπάει" το πλάτος */
-    transition: 0.9s; /* Εφέ όταν ακουμπάς το πλαίσιο */
-}
-
-.info-container:hover {
     box-shadow: 0px 0px 30px 10px orange;
 }
 
-/* Ρυθμίζουμε όλα τα p μέσα στο container */
-.info-container p {
-    font-size: 20px; /* Το 30px ήταν πολύ μεγάλο για τόσες γραμμές */
-    text-align: center;
+.title_SERVICE_label, .title_REPPAS_label {
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Προσαρμόζεται από κινητό μέχρι desktop */
+    font-weight: bold;
+    line-height: 1.1;
 }
 
-/* Ειδικό στυλ για τον τίτλο και το τηλέφωνο */
-#open, #tel {
-    font-size: 30px;
+.title_SERVICE_label { color: orange; }
+.title_REPPAS_label { color: white; }
+
+/* Cyber Card Section (Εικόνα - Κείμενο) */
+.cyber-card {
+    display: flex;
+    flex-wrap: wrap; /* Επιτρέπει στα στοιχεία να αλλάζουν σειρά αν δεν χωράνε */
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+#img1 {
+    width: 100%;
+    max-width: 500px; /* Μέγιστο πλάτος σε desktop */
+    height: auto;
+    flex: 1 1 300px; /* Responsive βάση */
+}
+
+.content {
+    color: orange;
+    flex: 1 1 400px; /* Παίρνει τον υπόλοιπο χώρο */
+    font-size: clamp(1.1rem, 2vw, 1.40rem);
+    line-height: 1.6;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Google Maps Section */
+#page_google_maps {
+    width: 100%;
+    background-color: #2B2B2B;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: 0.5s;
+}
+
+#page_google_maps:hover { box-shadow: 0px 0px 30px 10px orange; }
+
+#p {
+    font-size: 2rem;
     font-weight: bold;
     color: orange;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.map-img {
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-moto {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: orange;
+    color: #2B2B2B;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.btn-moto:hover {
+    background-color: #2B2B2B;
+    color: orange;
+    box-shadow: 0px 0px 20px orange;
+}
+
+/* Gallery Section - ΤΕΛΕΙΑ ΔΙΟΡΘΩΣΗ */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1 1 300px;
+}
+
+.left-col img, #third_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    /* Αφαίρεσα το transform: 1050px γιατί "σπάει" την οθόνη στα κινητά */
+}
+
+#third_img {
+    flex: 2 1 500px;
+}
+
+/* Info / Hours Section */
+.info-container {
+    background-color: #2B2B2B;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.info-container:hover { box-shadow: 0px 0px 30px 10px orange; }
+
+.info-container p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+#open, #tel {
+    font-size: 2rem;
+    color: orange;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* --- MEDIA QUERIES ΓΙΑ ΚΙΝΗΤΑ --- */
+@media (max-width: 768px) {
+    .cyber-card {
+        flex-direction: column;
+        text-align: center;
+    }
     
+    .content {
+        text-align: center;
+    }
+
+    .gallery {
+        flex-direction: column;
+    }
+
+    .left-col {
+        width: 100%;
+    }
 }
