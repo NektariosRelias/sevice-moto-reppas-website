@@ -148,8 +148,7 @@ body {
     color: orange;
     font-weight: bold;
     line-height: 1.9;
-    font-size: 2,90rem;
-    line-height: 1.8;          /* Αέρας ανάμεσα στις γραμμές για άνετο διάβασμα */
+    font-size: 2.90rem;
     text-align: justify;      /* Ίσιο κείμενο δεξιά και αριστερά */
     font-weight: 300;
 }
